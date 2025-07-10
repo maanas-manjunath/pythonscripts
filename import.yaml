@@ -1,0 +1,28 @@
+decorators:
+    - name: add
+      schema:
+        $id: root
+        $schema: http://json-schema.org/draft-07/schema#
+        additionalProperties: false
+        properties:
+            num1:
+                description: first number to be added
+                type: number
+            num2:
+                description: second number to be added
+                type: number
+        required:
+            - num1
+            - num2
+        type: object
+repositories:
+    - name: maanas-python
+      url: https://github.com/maanas-manjunath/pythonscripts.git
+      reference: main
+services:
+    - name: add 2 numbers
+      type: python-script
+      description: Python script that adds 2 numbers
+      filename: add.py
+      repository: maanas-python
+      decorator: add
