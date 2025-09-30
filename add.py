@@ -16,7 +16,7 @@ def main():
     parser.add_argument('--num2', '-N2', required=True, help='second number')
     args = parser.parse_args()
     try:
-        result = int(args.num1) + int(args.num1)
+        result = int(args.num1) + int(args.num2)
         output = {
             "success": True,
             "sum": result
