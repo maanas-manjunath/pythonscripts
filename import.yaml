@@ -20,7 +20,7 @@ repositories:
       url: https://github.com/maanas-manjunath/pythonscripts.git
       reference: main
 services:
-    - name: add 2 numbers
+    - name: add_2_numbers
       type: python-script
       description: Python script that adds 2 numbers
       filename: add.py
