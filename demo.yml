@@ -1,0 +1,19 @@
+---
+- name: Write name to file and append greeting
+  hosts: localhost
+  gather_facts: no
+  vars:
+    my_name: "John Doe"  # Change this to your actual name
+    file_path: "/tmp/myfile.txt"
+  
+  tasks:
+    - name: Task 1 - Write my name to a file
+      copy:
+        content: "{{ my_name }}"
+        dest: "{{ file_path }}"
+      register: write_result
+      
+    - name: Display write result
+      debug:
+        msg: "File created successfully at {{ file_path }}"
+      when: write_result is succeeded
