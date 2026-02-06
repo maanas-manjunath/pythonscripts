@@ -25,12 +25,4 @@ services:
       description: Python script that adds 2 numbers
       filename: add.py
       repository: maanas-python
-      decorator: add
-    - name: demo
-      type: ansible-playbook
-      description: test
-      ansible-playbooks: 
-        - demo.yml
-        - demo1.yml
-      repository: maanas-python
-      
+      decorator: add  
