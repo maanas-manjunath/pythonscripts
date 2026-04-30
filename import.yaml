@@ -15,6 +15,26 @@ decorators:
             - num1
             - num2
         type: object
+    - name: addThree
+      schema:
+        $id: root
+        $schema: http://json-schema.org/draft-07/schema#
+        additionalProperties: false
+        properties:
+            num1:
+                description: first number to be added
+                type: number
+            num2:
+                description: second number to be added
+                type: number
+            num3:
+                description: third number to be added
+                type: number
+        required:
+            - num1
+            - num2
+            - num3
+        type: object
     - name: run_command
       schema:
         $id: root
@@ -47,6 +67,12 @@ services:
       filename: add.py
       repository: maanas-python
       decorator: add
+    - name: add_3_numbers
+      type: python-script
+      description: Python script that adds 3 numbers
+      filename: addThree.py
+      repository: maanas-python
+      decorator: addThree
     - name: run_command
       type: python-script
       description: Simulates Cisco device command execution without SSH connection
