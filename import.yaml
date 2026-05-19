@@ -1,4 +1,16 @@
 decorators:
+    - name: htmlreport
+      schema:
+        $id: root
+        $schema: http://json-schema.org/draft-07/schema#
+        additionalProperties: false
+        properties:
+            devices:
+                description: devices from netbox
+                type: object
+        required:
+            - devices
+        type: object
     - name: add
       schema:
         $id: root
@@ -79,3 +91,9 @@ services:
       filename: run_command.py
       repository: maanas-python
       decorator: run_command  
+    - name: run_command
+      type: python-script
+      description: parse netbox devices response to a html report
+      filename: generate_netbox_html.py
+      repository: maanas-python
+      decorator: htmlreport  
