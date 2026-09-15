@@ -1,16 +1,4 @@
 decorators:
-    - name: htmlreport
-      schema:
-        $id: root
-        $schema: http://json-schema.org/draft-07/schema#
-        additionalProperties: false
-        properties:
-            devices:
-                description: devices from netbox
-                type: object
-        required:
-            - devices
-        type: object
     - name: add
       schema:
         $id: root
@@ -46,27 +34,6 @@ decorators:
             - num1
             - num2
             - num3
-        type: object
-    - name: run_command
-      schema:
-        $id: root
-        $schema: http://json-schema.org/draft-07/schema#
-        additionalProperties: false
-        properties:
-            device_ip:
-                description: IP address of the Cisco device
-                type: string
-                pattern: ^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$
-            command:
-                description: Cisco CLI command to execute
-                type: string
-                default: "show version"
-            save:
-                description: Save output to file
-                type: boolean
-                default: false
-        required:
-            - device_ip
         type: object
 repositories:
     - name: maanas-python
