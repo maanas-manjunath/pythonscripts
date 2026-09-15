@@ -9,3 +9,6 @@
   tasks:
     - name: Task 1 - Write my name to a file
       shell: echo "{{ my_name }}" > {{ file_path }}
+
+    - name: Task 2 - Append current time to the file
+      shell: echo "Current time: {{ ansible_date_time.iso8601 }}" >> {{ file_path }}
