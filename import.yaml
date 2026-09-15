@@ -77,6 +77,4 @@ services:
       repository: maanas-python
       decorator: helloansible
       runtime:
-        check: true
-        diff: true
         verbose-level: 6
