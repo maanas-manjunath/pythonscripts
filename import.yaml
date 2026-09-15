@@ -35,6 +35,22 @@ decorators:
             - num2
             - num3
         type: object
+    - name: helloansible
+      schema:
+        $id: root
+        $schema: http://json-schema.org/draft-07/schema#
+        additionalProperties: false
+        properties:
+            my_name:
+                description: user name
+                type: string
+            file_path:
+                description: file path to store the welcome message
+                type: string
+        required:
+            - my_name
+            - file_path
+        type: object
 repositories:
     - name: maanas-python
       url: https://github.com/maanas-manjunath/pythonscripts.git
@@ -52,15 +68,15 @@ services:
       filename: addThree.py
       repository: maanas-python
       decorator: addThree
-    - name: run_command
-      type: python-script
-      description: Simulates Cisco device command execution without SSH connection
-      filename: run_command.py
+    - name: Welcome Ansible
+      type: ansible-playbook
+      description: Creates a new file with a welcome message
+      playbooks:
+        - demo.yml
+      working-directory: ./
       repository: maanas-python
-      decorator: run_command  
-    - name: parseNetboxDevices
-      type: python-script
-      description: parse netbox devices response to a html report
-      filename: generate_netbox_html.py
-      repository: maanas-python
-      decorator: htmlreport  
+      decorator: helloansible
+      runtime:
+        check: true
+        diff: true
+        verbose-level: 6
